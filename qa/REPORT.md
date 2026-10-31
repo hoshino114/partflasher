@@ -88,7 +88,7 @@ Independent `dd if=/dev/block/loop54 bs=1M count=4 | sha256sum` matched too.
 ## 6. Reproduce
 
 ```bash
-cd /home/nz/android-dev/part-flasher
+cd /path/to/part-flasher
 source .tooling/dev-env.sh
 qa/start-emulator.sh && qa/wait-emulator.sh      # emulator (already running)
 qa/setup-lab.sh                                  # fake su + loop partitions + 0777 staging

@@ -1,5 +1,12 @@
 # PartFlasher · Android 分区刷写器
 
+[![Android CI](https://github.com/hoshino114/partflasher/actions/workflows/android.yml/badge.svg)](https://github.com/hoshino114/partflasher/actions/workflows/android.yml)
+[![GitHub release](https://img.shields.io/github/v/release/hoshino114/partflasher?include_prereleases&label=release)](https://github.com/hoshino114/partflasher/releases/latest)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+> 仓库：[github.com/hoshino114/partflasher](https://github.com/hoshino114/partflasher)
+
+
 一款面向已 Root Android 设备的本地 IMG 分区刷写工具。启动后申请 Root 权限，自动读取本机分区列表，校验镜像后通过 `dd` 将 raw IMG 写入指定分区；整个流程提供二次确认、可选备份、写入后 SHA-256 校验和完整操作日志。
 
 > **高风险提示**：刷写分区可能导致设备变砖、数据丢失或无法开机。请仅在充分理解风险、持有可恢复的官方镜像/fastboot 环境时使用。开发者不对任何设备损坏负责。
@@ -40,6 +47,8 @@
 - 建议预留足够 `/data` 空间：镜像大小 + 备份大小（若开启）。
 
 ## 安装
+
+从 [GitHub Releases](https://github.com/hoshino114/partflasher/releases/latest) 下载 APK，或直接安装本地构建产物：
 
 ```bash
 adb install -r dist/PartFlasher-1.0.0-arm64-release.apk
@@ -150,4 +159,4 @@ dist/          构建产物（APK/校验和）
 
 ## License
 
-源码用于学习交流；第三方依赖遵循各自许可证。正式分发前请补充项目 LICENSE。
+本项目使用 [MIT License](LICENSE)。第三方依赖遵循各自许可证。
