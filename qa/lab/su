@@ -1,0 +1,95 @@
+#!/system/bin/sh
+# Fake su for the PartFlasher QA lab. NOT a real privilege boundary.
+#
+# It is executed by the app process (untrusted_app domain, app uid), so commands
+# run with the *caller's* uid, not root. The lab compensates by making the
+# loop-backed test partitions world-writable and SELinux permissive.
+#
+# Interface expected by the app (see docs/SPEC.md):
+#   su -c <cmd>   -> run <cmd> through sh
+#   su -v         -> 27.0:MAGISK
+#   su --version  -> MAGISK 27.0
+#   su            -> interactive sh
+#
+# Identity probes are answered with root-looking output so the app's root
+# detection passes; no other command is faked.
+VERSION_SHORT="27.0:MAGISK"
+VERSION_LONG="MAGISK 27.0"
+
+case "${1:-}" in
+  -v)
+    echo "$VERSION_SHORT"
+    exit 0
+    ;;
+  --version|-V)
+    echo "$VERSION_LONG"
+    exit 0
+    ;;
+  -c|--command)
+    shift
+    if [ "$#" -eq 0 ]; then
+      echo "su: missing command" >&2
+      exit 1
+    fi
+    CMD="$1"
+    shift
+    ;;
+  -s|--shell)
+    exec /system/bin/sh
+    ;;
+  -)
+    exec /system/bin/sh
+    ;;
+  "")
+    exec /system/bin/sh
+    ;;
+  -*)
+    # Unknown option: be permissive, pass the rest to sh.
+    CMD="$*"
+    ;;
+  *)
+    CMD="$*"
+    ;;
+esac
+
+# Normalise common redirection suffixes that detection probes append.
+CMD_NORM="$CMD"
+case "$CMD_NORM" in
+  *" 2>/dev/null") CMD_NORM="${CMD_NORM% 2>/dev/null}" ;;
+  *" 2>&1") CMD_NORM="${CMD_NORM% 2>&1}" ;;
+  *" 2>/dev/null 2>&1") CMD_NORM="${CMD_NORM% 2>/dev/null 2>&1}" ;;
+esac
+
+# Root-detection probes: pretend to be a Magisk su shell.
+case "$CMD_NORM" in
+  id|"id -a"|"id -u -a")
+    echo "uid=0(root) gid=0(root) groups=0(root) context=u:r:magisk:s0"
+    exit 0
+    ;;
+  "id -u"|"id -ur"|"id -ru")
+    echo "0"
+    exit 0
+    ;;
+  "id -un"|"id -nu")
+    echo "root"
+    exit 0
+    ;;
+  "id -g"|"id -gr"|"id -rg")
+    echo "0"
+    exit 0
+    ;;
+  "id -gn"|"id -ng")
+    echo "root"
+    exit 0
+    ;;
+  whoami|"busybox whoami")
+    echo "root"
+    exit 0
+    ;;
+  "getprop ro.build.type")
+    echo "userdebug"
+    exit 0
+    ;;
+esac
+
+exec /system/bin/sh -c "$CMD"

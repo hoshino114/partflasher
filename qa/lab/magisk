@@ -1,0 +1,22 @@
+#!/system/bin/sh
+# Fake magisk binary for the PartFlasher QA lab (companion to fake su).
+# Supports the version queries most root-detection code uses; everything else
+# prints a version banner and exits.
+case "${1:-}" in
+  -v|--version)
+    echo "27.0:MAGISK"
+    exit 0
+    ;;
+  -V)
+    echo "27000"
+    exit 0
+    ;;
+  -h|--help)
+    echo "Magisk 27.0 (PartFlasher QA fake)"
+    exit 0
+    ;;
+  *)
+    echo "Magisk 27.0 (PartFlasher QA fake)"
+    exit 0
+    ;;
+esac

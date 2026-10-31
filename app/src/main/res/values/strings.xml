@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand / app -->
+    <string name="app_name">PartFlasher</string>
+    <string name="app_brand_subtitle">本地分区刷写工具</string>
+    <string name="app_disclaimer_short">仅供已 Root 的自有设备使用</string>
+    <string name="log_app_started">应用启动，版本 %1$s</string>
+
+    <!-- Bottom navigation -->
+    <string name="nav_flash">刷入</string>
+    <string name="nav_logs">日志</string>
+    <string name="nav_guide">指南</string>
+
+    <!-- Common actions / words -->
+    <string name="action_refresh">刷新</string>
+    <string name="action_refresh_desc">刷新 Root 与分区信息</string>
+    <string name="action_logs_desc">打开日志</string>
+    <string name="action_retry">重试</string>
+    <string name="action_retry_root">重新检测 Root</string>
+    <string name="action_expand">展开详情</string>
+    <string name="action_collapse">收起详情</string>
+    <string name="action_cancel">取消</string>
+    <string name="action_close">关闭</string>
+    <string name="action_clear">清除</string>
+    <string name="action_copy">复制</string>
+    <string name="action_search">搜索</string>
+    <string name="action_clear_search">清除搜索</string>
+    <string name="common_loading">加载中…</string>
+    <string name="common_unknown">未知</string>
+    <string name="common_none">无</string>
+    <string name="common_not_available">不可用</string>
+    <string name="common_error">错误</string>
+    <string name="common_warning">警告</string>
+    <string name="common_info">提示</string>
+    <string name="common_success">成功</string>
+    <string name="common_retry">重试</string>
+    <string name="common_details">详情</string>
+    <string name="common_required">必填</string>
+
+    <!-- Root status -->
+    <string name="root_card_title">Root 权限</string>
+    <string name="root_title_checking">正在申请 Root 权限…</string>
+    <string name="root_title_granted">已获取 Root 权限</string>
+    <string name="root_title_denied">Root 授权被拒绝</string>
+    <string name="root_title_not_rooted">未检测到 Root 权限</string>
+    <string name="root_title_error">Root 检测失败</string>
+    <string name="root_title_unknown">尚未检测 Root 权限</string>
+    <string name="root_checking_detail">如系统弹出授权窗口，请点击“允许”；部分 Root 管理器需要保持屏幕解锁。</string>
+    <string name="root_granted_detail">已获得超级用户权限，可以读取分区表并执行刷写。刷写过程中请勿撤销授权。</string>
+    <string name="root_denied_detail">请打开 Root 管理器（Magisk / KernelSU / APatch），在超级用户列表中允许 PartFlasher，然后点击“重新检测”。若没有弹窗，请确认管理器中的超级用户功能已开启。</string>
+    <string name="root_not_rooted_detail">本应用通过 Magisk / KernelSU / APatch 提供的 su 获取 Root 权限。当前设备未检测到可用的 Root 方案，请先完成 Root 后再使用。</string>
+    <string name="root_error_detail">无法完成 Root 检测，请检查 Root 管理器是否正常工作，或查看日志获取详细信息。</string>
+    <string name="root_unknown_detail">点击下方按钮检测设备是否具备 Root 权限，并触发 su 授权弹窗。</string>
+    <string name="root_retry_hint">重新检测会再次触发 su 授权弹窗。</string>
+    <string name="root_solution_label">Root 方案</string>
+    <string name="root_version_label">版本</string>
+    <string name="root_uid_label">UID</string>
+    <string name="root_su_path_label">su 路径</string>
+    <string name="root_checked_at_label">检测时间</string>
+    <string name="root_detail_message_label">管理器信息</string>
+    <string name="root_detail_expand">Root 详情</string>
+    <string name="root_icon_desc">Root 状态</string>
+    <string name="root_retry_desc">重新检测 Root 权限</string>
+
+    <string name="solution_magisk">Magisk</string>
+    <string name="solution_kernelsu">KernelSU</string>
+    <string name="solution_apatch">APatch</string>
+    <string name="solution_other">其他方案</string>
+    <string name="solution_none">无 Root 方案</string>
+    <string name="solution_unknown">未知方案</string>
+
+    <!-- Device info -->
+    <string name="device_card_title">设备信息</string>
+    <string name="device_card_desc">设备信息卡片</string>
+    <string name="device_model_label">设备</string>
+    <string name="device_manufacturer_label">厂商</string>
+    <string name="device_android_label">Android 版本</string>
+    <string name="device_android_value">Android %1$s（SDK %2$d）</string>
+    <string name="device_android_platform">Android %1$s</string>
+    <string name="device_abi_label">ABI</string>
+    <string name="device_abi_highlight">arm64</string>
+    <string name="device_slot_label">当前槽位</string>
+    <string name="device_dynamic_label">动态分区</string>
+    <string name="device_dynamic_supported">支持</string>
+    <string name="device_dynamic_unsupported">不支持</string>
+    <string name="device_emulator_label">运行环境</string>
+    <string name="device_emulator_hint">模拟器环境仅用于开发测试，刷写行为取决于模拟的 su 与分区。</string>
+    <string name="device_emulator_value">模拟器</string>
+    <string name="device_real_value">真机</string>
+    <string name="device_unknown_value">未知</string>
+    <string name="device_security_patch_label">安全补丁</string>
+    <string name="device_kernel_label">内核</string>
+    <string name="device_load_failed">读取设备信息失败：%1$s</string>
+    <string name="device_loading">正在读取设备信息…</string>
+    <string name="device_icon_desc">设备信息图标</string>
+    <string name="slot_label_a">A 槽位</string>
+    <string name="slot_label_b">B 槽位</string>
+    <string name="slot_label_none">无（非 A/B）</string>
+    <string name="slot_badge">槽位 %1$s</string>
+    <string name="slot_badge_desc">槽位 %1$s</string>
+
+    <!-- Safety banner -->
+    <string name="safety_banner_title">刷入前请务必确认</string>
+    <string name="safety_banner_body">• 只刷入与本机型号、分区完全匹配的可信镜像\n• 刷错镜像或选错分区可能导致设备变砖\n• 保持电量充足，刷写过程中请勿断电、拔线或强制重启\n• 建议开启备份，以便异常时恢复</string>
+    <string name="safety_banner_icon_desc">安全警告</string>
+
+    <!-- Quick partitions -->
+    <string name="quick_title">常用分区</string>
+    <string name="quick_subtitle">点击卡片预选当前槽位分区并打开镜像文件</string>
+    <string name="quick_unavailable">不可用</string>
+    <string name="quick_unavailable_hint">设备上未找到该分区</string>
+    <string name="quick_blocked_hint">该分区受保护，无法刷写</string>
+    <string name="quick_size_unknown">容量未知</string>
+    <string name="quick_boot_title">boot</string>
+    <string name="quick_boot_desc">内核与 ramdisk，Magisk 常修补此处</string>
+    <string name="quick_recovery_title">recovery</string>
+    <string name="quick_recovery_desc">恢复模式，部分设备已集成到 boot</string>
+    <string name="quick_init_boot_title">init_boot</string>
+    <string name="quick_init_boot_desc">Android 13+ 部分设备的 init 引导</string>
+    <string name="quick_vendor_boot_title">vendor_boot</string>
+    <string name="quick_vendor_boot_desc">厂商 ramdisk，A/B 设备常见</string>
+    <string name="quick_dtbo_title">dtbo</string>
+    <string name="quick_dtbo_desc">设备树覆盖（DTO）</string>
+    <string name="quick_vbmeta_title">vbmeta</string>
+    <string name="quick_vbmeta_desc">验证启动元数据，修改后可能影响校验</string>
+    <string name="quick_card_desc">%1$s 快捷选择</string>
+    <string name="quick_selected_hint">已选中此分区</string>
+
+    <!-- Image + target selection -->
+    <string name="selection_title">刷入准备</string>
+    <string name="selection_target_title">目标分区</string>
+    <string name="selection_target_empty">尚未选择目标分区</string>
+    <string name="selection_target_hint">从上方常用分区或下方列表选择要写入的分区</string>
+    <string name="selection_target_change">更换分区</string>
+    <string name="selection_image_title">镜像文件</string>
+    <string name="selection_image_empty">尚未选择镜像</string>
+    <string name="selection_image_hint">支持 raw 格式的 boot、vendor_boot、dtbo、vbmeta、ext4、erofs 镜像</string>
+    <string name="selection_choose_image">选择镜像</string>
+    <string name="selection_change_image">更换镜像</string>
+    <string name="selection_clear_image">移除镜像</string>
+    <string name="selection_clear_selection">清除选择</string>
+    <string name="selection_image_name">文件名</string>
+    <string name="selection_image_size">镜像大小</string>
+    <string name="selection_image_format">镜像格式</string>
+    <string name="selection_image_header">文件头</string>
+    <string name="selection_image_sha">镜像 SHA-256</string>
+    <string name="selection_image_sha_desc">镜像 SHA-256 校验值</string>
+    <string name="selection_staging">正在复制镜像并计算 SHA-256…</string>
+    <string name="selection_staging_progress">正在复制镜像… %1$d%%</string>
+    <string name="selection_staging_note">镜像会先复制到应用缓存并计算 SHA-256，校验通过后才允许刷入。</string>
+    <string name="selection_staging_failed">镜像读取失败</string>
+    <string name="selection_image_ready">镜像已就绪</string>
+    <string name="selection_partition_size">分区容量</string>
+    <string name="selection_partition_path">分区路径</string>
+    <string name="selection_partition_slot">分区槽位</string>
+    <string name="selection_image_icon_desc">镜像文件图标</string>
+    <string name="selection_partition_icon_desc">目标分区图标</string>
+
+    <!-- Validation -->
+    <string name="validation_title">校验结果</string>
+    <string name="validation_passed">校验通过，可以刷入</string>
+    <string name="validation_blocked">存在必须解决的问题，暂时无法刷入</string>
+    <string name="validation_checking">正在校验镜像…</string>
+    <string name="validation_need_target">选择目标分区后进行校验</string>
+    <string name="validation_need_image">选择镜像后进行校验</string>
+    <string name="validation_errors">%1$d 个错误</string>
+    <string name="validation_warnings">%1$d 个警告</string>
+    <string name="validation_infos">%1$d 条提示</string>
+    <string name="validation_more_issues">还有 %1$d 条提示，展开查看</string>
+    <string name="validation_expand">显示全部校验项</string>
+    <string name="validation_collapse">收起校验项</string>
+    <string name="validation_failed">校验未完成：%1$s</string>
+
+    <!-- Flash CTA / summary -->
+    <string name="flash_cta">确认刷入</string>
+    <string name="flash_cta_long">继续确认刷入</string>
+    <string name="flash_cta_hint_no_target">请先选择目标分区</string>
+    <string name="flash_cta_hint_no_image">请先选择镜像文件</string>
+    <string name="flash_cta_hint_staging">镜像处理中，请稍候</string>
+    <string name="flash_cta_hint_errors">存在错误项，暂时无法刷入</string>
+    <string name="flash_cta_hint_validation">正在校验，请稍候</string>
+    <string name="flash_cta_hint_flashing">刷写进行中</string>
+    <string name="flash_cta_hint_root">需要 Root 权限才能刷入</string>
+    <string name="flash_summary_no_image">未选择镜像</string>
+    <string name="flash_summary_image_ready">镜像已就绪</string>
+    <string name="flash_summary_root_hint">未获得 Root 权限，暂不能刷入</string>
+
+    <!-- Confirm dialog -->
+    <string name="confirm_title">确认刷入</string>
+    <string name="confirm_warning">此操作会直接写入块设备。镜像或分区不匹配可能导致设备无法开机，请再次核对以下信息。</string>
+    <string name="confirm_section_target">目标分区</string>
+    <string name="confirm_section_image">镜像</string>
+    <string name="confirm_partition_name">分区名称</string>
+    <string name="confirm_partition_path">分区路径</string>
+    <string name="confirm_partition_size">分区容量</string>
+    <string name="confirm_partition_slot">当前槽位</string>
+    <string name="confirm_image_name">镜像文件</string>
+    <string name="confirm_image_size">镜像大小</string>
+    <string name="confirm_image_format">镜像格式</string>
+    <string name="confirm_image_sha">SHA-256</string>
+    <string name="confirm_backup_title">刷写前备份原分区</string>
+    <string name="confirm_backup_desc">将原分区内容备份到 /data/local/tmp，刷写失败时可用于恢复</string>
+    <string name="confirm_verify_title">写入后校验</string>
+    <string name="confirm_verify_desc">写入完成后读回并比对 SHA-256，不一致会判定为失败</string>
+    <string name="confirm_backup_size">备份大小约 %1$s</string>
+    <string name="confirm_backup_too_large">分区超过 512 MB，无法创建备份</string>
+    <string name="confirm_extra_warning">该镜像或分区属于额外风险场景（super / 固件 / 未知格式），请再次确认已充分了解后果。</string>
+    <string name="confirm_extra_ack">我确认已了解该高风险场景，仍要继续</string>
+    <string name="confirm_ack">我已了解风险，确认将以上镜像写入所选分区</string>
+    <string name="confirm_action">确认刷入</string>
+    <string name="confirm_action_desc">危险操作，将写入分区</string>
+    <string name="confirm_protected_hint">该分区受保护，无法刷入</string>
+    <string name="confirm_icon_desc">危险操作警告</string>
+
+    <!-- Flash progress -->
+    <string name="flash_progress_title">正在刷入</string>
+    <string name="flash_progress_icon_desc">刷写进度</string>
+    <string name="flash_stage_preparing">正在准备刷写…</string>
+    <string name="flash_stage_backing_up">正在备份原分区…</string>
+    <string name="flash_stage_flashing">正在写入镜像…</string>
+    <string name="flash_stage_verifying">正在校验写入结果…</string>
+    <string name="flash_stage_idle">等待开始…</string>
+    <string name="flash_progress_bytes">%1$s / %2$s</string>
+    <string name="flash_progress_percent">%1$d%%</string>
+    <string name="flash_progress_speed">速度 %1$s</string>
+    <string name="flash_progress_elapsed">已用 %1$s</string>
+    <string name="flash_progress_backup_note">正在备份，请勿中断</string>
+    <string name="flash_progress_warning">刷写过程中请勿退出应用、断电或强制重启！</string>
+    <string name="flash_progress_log_tail">实时日志</string>
+    <string name="flash_progress_no_cancel">写入开始后无法取消</string>
+    <string name="flash_progress_target">目标分区：%1$s</string>
+
+    <!-- Result dialogs -->
+    <string name="result_success_title">刷入成功</string>
+    <string name="result_failed_title">刷入失败</string>
+    <string name="result_success_icon_desc">刷入成功</string>
+    <string name="result_failed_icon_desc">刷入失败</string>
+    <string name="result_partition">目标分区</string>
+    <string name="result_duration">耗时</string>
+    <string name="result_verified">写入校验</string>
+    <string name="result_verified_ok">已通过（SHA-256 一致）</string>
+    <string name="result_verified_skipped">未校验</string>
+    <string name="result_verified_mismatch">未通过（SHA-256 不一致）</string>
+    <string name="result_backup">备份文件</string>
+    <string name="result_no_backup">未创建备份</string>
+    <string name="result_output_path">写入路径</string>
+    <string name="result_success_note">镜像已写入。请重启设备验证；如无法开机，可使用备份文件恢复，或进入 fastboot 重新刷写官方镜像。</string>
+    <string name="result_failure_stage">失败阶段</string>
+    <string name="result_failure_reason">失败原因</string>
+    <string name="result_failure_detail">详细信息</string>
+    <string name="result_failure_note">设备可能处于不完整状态：请勿反复重启。可尝试进入 fastboot / 恢复模式，使用电脑刷写官方镜像；如有备份，可按备份路径恢复。</string>
+    <string name="result_view_logs">查看日志</string>
+    <string name="result_done">完成</string>
+
+    <!-- Flash events / snackbars -->
+    <string name="snack_flash_already_running">已有刷写任务正在进行，请等待完成</string>
+    <string name="snack_flash_finished_success">刷入流程已结束，请查看结果</string>
+    <string name="snack_flash_finished_failure">刷入失败，请查看结果与日志</string>
+    <string name="snack_flash_start_failed">无法启动刷写任务</string>
+    <string name="snack_not_ready">当前条件不满足，无法开始刷入</string>
+    <string name="snack_image_ready">镜像已就绪</string>
+    <string name="snack_image_failed">镜像处理失败：%1$s</string>
+    <string name="snack_partition_selected">已选择分区：%1$s</string>
+    <string name="snack_partition_protected">该分区受保护：%1$s</string>
+    <string name="snack_partition_unavailable">分区不存在或不可用：%1$s</string>
+    <string name="snack_logs_copied">日志已复制到剪贴板</string>
+    <string name="snack_logs_copy_empty">暂无日志可复制</string>
+    <string name="snack_logs_exported">日志已导出：%1$s</string>
+    <string name="snack_logs_export_failed">日志导出失败：%1$s</string>
+    <string name="snack_logs_cleared">日志已清空</string>
+    <string name="snack_export_no_logs">暂无日志可导出</string>
+
+    <!-- Partition list -->
+    <string name="partitions_title">全部分区</string>
+    <string name="partitions_subtitle">来自设备 by-name 分区表，仅列出可操作条目</string>
+    <string name="partitions_count">共 %1$d 个</string>
+    <string name="partitions_search_placeholder">搜索分区名称、路径或说明</string>
+    <string name="partitions_empty_search">没有匹配的分区</string>
+    <string name="partitions_empty">未读取到分区</string>
+    <string name="partitions_empty_hint">请确认已授予 Root 权限后重新扫描</string>
+    <string name="partitions_load_failed">读取分区失败：%1$s</string>
+    <string name="partitions_retry">重新扫描</string>
+    <string name="partitions_scanning">正在读取分区表…</string>
+    <string name="partitions_source">来源：%1$s</string>
+    <string name="group_boot_family">启动相关分区</string>
+    <string name="group_other">其他分区</string>
+    <string name="partition_size_value">容量 %1$s</string>
+    <string name="partition_mounted_value">已挂载 %1$s</string>
+    <string name="partition_mounted_simple">已挂载</string>
+    <string name="partition_protected">受保护</string>
+    <string name="partition_risk_caution">谨慎</string>
+    <string name="partition_risk_critical">高风险</string>
+    <string name="partition_selected">已选择</string>
+    <string name="partition_selected_desc">已选择的分区</string>
+    <string name="partition_lock_desc">受保护分区</string>
+    <string name="partition_slot_none">非 A/B</string>
+    <string name="partition_kind_boot">boot</string>
+    <string name="partition_kind_recovery">recovery</string>
+    <string name="partition_kind_init_boot">init_boot</string>
+    <string name="partition_kind_vendor_boot">vendor_boot</string>
+    <string name="partition_kind_dtbo">dtbo</string>
+    <string name="partition_kind_vbmeta">vbmeta</string>
+    <string name="partition_kind_super">super</string>
+    <string name="partition_kind_system">system</string>
+    <string name="partition_kind_vendor">vendor</string>
+    <string name="partition_kind_product">product</string>
+    <string name="partition_kind_odm">odm</string>
+    <string name="partition_kind_data">data</string>
+    <string name="partition_kind_metadata">metadata</string>
+    <string name="partition_kind_firmware">firmware</string>
+    <string name="partition_kind_modem">modem</string>
+    <string name="partition_kind_misc">misc</string>
+    <string name="partition_kind_persist">persist</string>
+    <string name="partition_kind_other">其他</string>
+    <string name="partition_kind_chip_desc">分区类型：%1$s</string>
+    <string name="partition_scan_warning">%1$s</string>
+    <string name="partition_scan_warnings_title">扫描提示</string>
+
+    <!-- Logs screen -->
+    <string name="logs_title">日志</string>
+    <string name="logs_filter_all">全部</string>
+    <string name="logs_filter_debug">调试</string>
+    <string name="logs_filter_info">信息</string>
+    <string name="logs_filter_success">成功</string>
+    <string name="logs_filter_warn">警告</string>
+    <string name="logs_filter_error">错误</string>
+    <string name="logs_filter_command">命令</string>
+    <string name="logs_search_placeholder">搜索日志内容</string>
+    <string name="logs_copy_all">复制全部</string>
+    <string name="logs_export">导出</string>
+    <string name="logs_clear">清空</string>
+    <string name="logs_clear_confirm_title">清空日志</string>
+    <string name="logs_clear_confirm_body">确定要清空当前日志吗？已导出的文件不会被删除。</string>
+    <string name="logs_clear_confirm_action">清空</string>
+    <string name="logs_empty_title">暂无日志</string>
+    <string name="logs_empty_body">操作记录与刷写过程会显示在这里</string>
+    <string name="logs_empty_filter">没有符合筛选条件的日志</string>
+    <string name="logs_count">%1$d 条</string>
+    <string name="logs_filtered_count">%1$d / %2$d 条</string>
+    <string name="logs_auto_scroll">自动滚动</string>
+    <string name="logs_auto_scroll_desc">自动滚动到最新日志</string>
+    <string name="logs_copy_desc">复制全部日志</string>
+    <string name="logs_export_desc">导出日志文件</string>
+    <string name="logs_clear_desc">清空日志</string>
+    <string name="logs_level_debug">DEBUG</string>
+    <string name="logs_level_info">INFO</string>
+    <string name="logs_level_success">OK</string>
+    <string name="logs_level_warn">WARN</string>
+    <string name="logs_level_error">ERROR</string>
+    <string name="logs_level_command">CMD</string>
+    <string name="logs_level_desc">日志级别</string>
+    <string name="logs_time_desc">时间</string>
+    <string name="logs_export_mime">text/plain</string>
+
+    <!-- Guide screen -->
+    <string name="guide_title">指南</string>
+    <string name="guide_safety_title">安全须知</string>
+    <string name="guide_safety_1">刷写分区属于高风险操作，可能导致设备变砖、数据丢失或无法开机。</string>
+    <string name="guide_safety_2">只能刷入来源于可信渠道、与本机型号和分区完全匹配的镜像。</string>
+    <string name="guide_safety_3">开始前请先备份当前分区，本应用默认对 boot 系列分区开启备份。</string>
+    <string name="guide_safety_4">刷写过程中请勿断电、让设备电量耗尽、强制重启或撤销 Root 授权。</string>
+    <string name="guide_safety_5">保持 fastboot 与电脑可用，以便在异常时恢复设备。</string>
+    <string name="guide_workflow_title">推荐操作流程</string>
+    <string name="guide_workflow_1">获取并允许 Root 权限（Magisk / KernelSU / APatch）。</string>
+    <string name="guide_workflow_2">确认设备型号与当前槽位，A/B 设备请选择活动槽位对应的分区。</string>
+    <string name="guide_workflow_3">选择目标分区，再选择要刷入的 IMG 文件。</string>
+    <string name="guide_workflow_4">等待镜像复制与 SHA-256 计算完成，仔细阅读校验结果。</string>
+    <string name="guide_workflow_5">在确认框中核对分区、镜像与 SHA-256，勾选风险确认后刷入。</string>
+    <string name="guide_workflow_6">刷写完成后重启设备验证；若失败，按提示恢复备份或使用 fastboot 刷写官方镜像。</string>
+    <string name="guide_root_title">Root 管理器说明</string>
+    <string name="guide_root_magisk_title">Magisk</string>
+    <string name="guide_root_magisk_body">在 Magisk App 的「超级用户」页面允许 PartFlasher；部分版本需要重新打开应用才会再次弹出授权。</string>
+    <string name="guide_root_kernelsu_title">KernelSU</string>
+    <string name="guide_root_kernelsu_body">在 KernelSU Manager 的「超级用户」列表中授予 PartFlasher 权限；内核模式需要内核已集成 KernelSU。</string>
+    <string name="guide_root_apatch_title">APatch</string>
+    <string name="guide_root_apatch_body">在 APatch Manager 中授予 PartFlasher 超级用户权限，并确认超级用户开关已启用。</string>
+    <string name="guide_root_common_title">通用提示</string>
+    <string name="guide_root_common_body">若没有弹出授权窗口，请检查管理器是否开启超级用户功能、是否处于工作资料（分身）空间，或重启管理器后再次检测。</string>
+    <string name="guide_formats_title">支持的镜像格式</string>
+    <string name="guide_formats_supported_title">支持（v1）</string>
+    <string name="guide_formats_supported_body">raw boot / init_boot / vendor_boot / recovery / dtbo / vbmeta / ext4 / erofs 镜像（未压缩、非 sparse）。</string>
+    <string name="guide_formats_unsupported_title">暂不支持</string>
+    <string name="guide_formats_unsupported_body">Android sparse、gzip / lz4 / zstd 压缩镜像、payload.bin 包。请先解压或转换为 raw 镜像后再刷入。</string>
+    <string name="guide_format_limit_note">镜像大小不能超过目标分区容量；boot 系列镜像会校验文件头与分区类型是否匹配。</string>
+    <string name="guide_faq_title">常见问题</string>
+    <string name="guide_faq_denied_q">授权弹窗点了拒绝 / 没有弹窗？</string>
+    <string name="guide_faq_denied_a">打开 Root 管理器，在超级用户列表中找到 PartFlasher 并允许，然后回到应用点击「重新检测」。仍无弹窗时，请确认管理器的超级用户功能已开启。</string>
+    <string name="guide_faq_nopartition_q">看不到分区 / 分区列表为空？</string>
+    <string name="guide_faq_nopartition_a">分区列表需要 Root 权限才能读取。请先确认已授权，再点击刷新；若读取失败可查看日志中的 su 输出。</string>
+    <string name="guide_faq_verify_q">校验不匹配怎么办？</string>
+    <string name="guide_faq_verify_a">请勿反复写入。检查镜像是否损坏、分区容量是否足够、存储是否稳定；如有备份，可按备份路径恢复，或使用 fastboot 刷写官方镜像。</string>
+    <string name="guide_faq_brick_q">刷入后无法开机怎么办？</string>
+    <string name="guide_faq_brick_a">保持冷静，不要反复刷写。可尝试进入 fastboot 或恢复模式，用电脑刷写官方完整包；如刷写前已备份，可在 /data/local/tmp 下找到备份文件恢复。</string>
+    <string name="guide_faq_data_q">会清除数据吗？</string>
+    <string name="guide_faq_data_a">本应用只写入你选择的分区，不会主动清除 userdata。但错误刷写可能影响系统启动，建议提前备份重要数据。</string>
+    <string name="guide_about_title">关于</string>
+    <string name="guide_about_version">版本</string>
+    <string name="guide_about_build">构建号</string>
+    <string name="guide_about_target">目标 SDK</string>
+    <string name="guide_about_abi">支持架构</string>
+    <string name="guide_about_brand">PartFlasher · 本地分区刷写工具</string>
+    <string name="guide_about_disclaimer">法律声明：本应用仅用于在已获得 Root 权限的自有设备上维护系统分区。请遵守设备厂商条款与当地法律法规；因误用导致的设备损坏与数据丢失由使用者自行承担。镜像版权归其各自所有者所有。</string>
+    <string name="guide_step_number">%1$d</string>
+
+    <!-- Image picker -->
+    <string name="image_picker_title">选择镜像文件</string>
+    <string name="image_picker_failed">无法读取所选镜像文件</string>
+
+    <!-- Misc / accessibility -->
+    <string name="cd_expand">展开</string>
+    <string name="cd_collapse">收起</string>
+    <string name="cd_selected">已选中</string>
+    <string name="cd_error_count">%1$d 条错误日志</string>
+    <string name="status_icon_success">成功</string>
+    <string name="status_icon_warning">警告</string>
+    <string name="status_icon_error">错误</string>
+    <string name="status_icon_info">提示</string>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Window background used before Compose draws (also the Android 12+ splash color). -->
+    <color name="window_background">#FFF8F9FF</color>
+    <!-- Adaptive launcher icon background: electric blue. -->
+    <color name="ic_launcher_background">#FF0B57D0</color>
+</resources>

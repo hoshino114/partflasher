@@ -1,0 +1,21 @@
+.gradle/
+build/
+**/build/
+local.properties
+.tooling/
+.android-sdk/
+.idea/
+*.iml
+captures/
+dist/*.apk
+dist/*.aab
+dist/*.idsig
+.DS_Store
+
+# Local QA artifacts / generated fixtures (scripts can regenerate)
+qa/artifacts/
+qa/fixtures/
+native/test_sha256
+
+# Local Android environment (installed by scripts/setup-env.sh)
+.local.properties

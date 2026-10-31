@@ -1,0 +1,2 @@
+2c1b588b41972aa4e7a1c526480a0f298d47e5d7fd134d06d2ac05b19ee3101d  PartFlasher-1.0.0-arm64-release.apk
+d0787a2d3d51ff61117e4b21d9264d27cf7dec70f1b0b909e5327b3fa2a2a18d  PartFlasher-1.0.0-arm64+x86_64-debug.apk

@@ -1,0 +1,28 @@
+PartFlasher 1.0.0 — build information
+=====================================
+Build date        : 2026-10-31
+Package (release) : com.partflasher.app
+Package (debug)   : com.partflasher.app.debug
+minSdk / targetSdk: 26 / 36 (Android 16)
+compileSdk        : 36
+Build tools       : 36.0.0
+Gradle / AGP      : 8.13 / 8.11.1
+Kotlin / Compose  : 2.2.0 / Compose BOM 2025.06.01, Material3
+Native            : arm64-v8a (release), arm64-v8a + x86_64 (debug); SHA-256 JNI,
+                    16 KB page aligned
+Signing           : development debug key (replace for production distribution)
+Tests             : 177 JVM unit tests (176 pass, 1 env-skip, 0 fail)
+Lint              : 0 errors
+E2E               : Android 16 API 36 emulator, fake root + loop partitions: PASS
+                    (see ../qa/REPORT.md)
+Artifacts         : PartFlasher-1.0.0-arm64-release.apk
+                    PartFlasher-1.0.0-arm64+x86_64-debug.apk
+Checksums         : see SHA256SUMS.txt
+
+Install (release):
+  adb install -r PartFlasher-1.0.0-arm64-release.apk
+
+Source build:
+  bash scripts/setup-env.sh
+  source .tooling/dev-env.sh
+  ./scripts/gradle.sh :app:assembleRelease
